@@ -21,22 +21,77 @@ gmailButton.onclick = () =>{
 const parentBlock = document.querySelector('.parent_block');
 const childBlock = document.querySelector('.child_block');
 
-const right = (element, length, speed = 1) => {
+let positionX = 0;
+let positionY = 0;
 
-    const currentLeft = parseFloat(element.style.left) || 0;
+const move = () => {
+    if (positionX < 448 && positionY === 0) {
+        positionX++;
+        childBlock.style.left = `${positionX}px`;
 
-    if (currentLeft < length) {
-        const way = speed;
-        // element.style.left = (currentLeft + way) + 'px';
-        element.style.left = `${currentLeft + way}px`
+    } else if (positionX >= 448 && positionY < 448) {
+        positionY++;
+        childBlock.style.top = `${positionY}px`;
+
+    } else if (positionX > 0) {
+        positionX--;
+        childBlock.style.left = `${positionX}px`;
+
+    } else if (positionX === 0 && positionY > 0) {
+        positionY--;
+        childBlock.style.top = `${positionY}px`;
     }
 
-    requestAnimationFrame(() => right(element, length, speed));
+    setTimeout(move, 1);
 }
 
-
-right(childBlock, 450, 2);
-
+move();
 
 
 
+
+//////////////////// HOME 2 ////////////////////
+
+
+
+const buttonStart = document.querySelector('#start');
+const buttonStop = document.querySelector('#stop');
+const buttonReset= document.querySelector('#reset');
+
+
+const secondsS = document.querySelector('#secondsS')
+let num = 0
+let interval = null
+
+//////////////////// start ////////////////////
+
+buttonStart.addEventListener('click', () => {
+    interval = setInterval( () =>{
+        num++;
+        secondsS.innerHTML = num;
+    }, 1000)
+});   
+    
+//////////////////// stop ////////////////////
+buttonStop.addEventListener('click', () => {
+
+    const stopInterval = () => {
+        clearInterval(interval)
+        interval = null
+    }
+
+    if (interval) {
+        stopInterval();
+    }
+});
+
+
+//////////////////// reset ////////////////////
+buttonReset.addEventListener('click', () => {
+    num = 0;
+    secondsS.innerHTML = num;
+    if (interval) {
+        clearInterval(interval);
+        interval = null;
+    }
+});
