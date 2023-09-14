@@ -42,7 +42,7 @@ const move = () => {
         childBlock.style.top = `${positionY}px`;
     }
 
-    setTimeout(move, 1);
+    setTimeout(move, 15);
 }
 
 move();
@@ -50,46 +50,44 @@ move();
 
 
 
+
 //////////////////// HOME 2 ////////////////////
-
-
-
 const buttonStart = document.querySelector('#start');
 const buttonStop = document.querySelector('#stop');
 const buttonReset= document.querySelector('#reset');
 
 
-const secondsS = document.querySelector('#secondsS')
+const secondsS = document.querySelector('#secondsS');
 let num = 0
 let interval = null
 
 //////////////////// start ////////////////////
 
 buttonStart.addEventListener('click', () => {
-    interval = setInterval( () =>{
-        num++;
-        secondsS.innerHTML = num;
-    }, 1000)
+    
+    if (!interval) {
+        interval = setInterval( () =>{
+            num++;
+            secondsS.innerHTML = num;
+        }, 1000)
+    }
 });   
     
 //////////////////// stop ////////////////////
 buttonStop.addEventListener('click', () => {
 
-    const stopInterval = () => {
+    if (interval) {
         clearInterval(interval)
         interval = null
-    }
-
-    if (interval) {
-        stopInterval();
     }
 });
 
 
 //////////////////// reset ////////////////////
 buttonReset.addEventListener('click', () => {
-    num = 0;
-    secondsS.innerHTML = num;
+    num = 0
+    secondsS.innerHTML = num
+
     if (interval) {
         clearInterval(interval);
         interval = null;

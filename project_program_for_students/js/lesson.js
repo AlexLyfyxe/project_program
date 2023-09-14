@@ -14,3 +14,41 @@ phoneButton.onclick = () =>{
         phoneResult.style.color = 'red'
     }
 }
+
+
+
+// TAB SLIDER
+const tabContentBlocks = document.querySelectorAll('.tab_content_block')
+const tabItems = document.querySelectorAll('.tab_content_item')
+const parentTabs = document.querySelector('.tab_content_items')
+
+const hideTadContent = () =>{
+    tabContentBlocks.forEach((tabContentBlock) => {
+        tabContentBlock.style.display = 'none'
+    })
+    tabItems.forEach((tabItem) => {
+        tabItem.classList.remove('tab_content_item_active')
+    })
+}
+
+
+const showTabContent = (indexElemet = 0) => {
+    tabContentBlocks[indexElemet].style.display = 'block'
+    tabItems[indexElemet].classList.add('tab_content_item_active')
+}
+
+
+
+showTabContent()
+showTabContent()
+
+parentTabs.onclick = (event) => {
+    if (event.target.classList.contains('tab_content_item')) {
+        tabItems.forEach((tabItem, tabIndex) => {
+            if (event.target === tabItem){
+                hideTadContent()
+                showTabContent(tabIndex)
+            }
+        }) 
+    }
+}
