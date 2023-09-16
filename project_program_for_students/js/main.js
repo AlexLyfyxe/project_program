@@ -9,14 +9,21 @@ const generateRandomColor = () => {
     for (let i = 0; i < 6; i++) {
         color += hexCodes[Math.floor(Math.random() * hexCodes.length)]
     }
-    return '#' + color
+
+    return '#' + color 
+    
 }
 
 const setRandomColors = () => {
     buttonsColor.forEach((buttonColor) => {
+        //// bcgColor button
+        const randomColor = generateRandomColor()
+        buttonColor.style.backgroundColor = randomColor
+
         buttonColor.innerHTML = generateRandomColor()
         buttonColor.onclick = (event) => {
             javaScript.style.color = event.target.innerHTML
+
         }
     })
 }

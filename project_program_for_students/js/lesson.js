@@ -22,33 +22,75 @@ const tabContentBlocks = document.querySelectorAll('.tab_content_block')
 const tabItems = document.querySelectorAll('.tab_content_item')
 const parentTabs = document.querySelector('.tab_content_items')
 
-const hideTadContent = () =>{
+
+const hideTabContent = () =>{
     tabContentBlocks.forEach((tabContentBlock) => {
         tabContentBlock.style.display = 'none'
     })
     tabItems.forEach((tabItem) => {
         tabItem.classList.remove('tab_content_item_active')
     })
+    
 }
+
 
 
 const showTabContent = (indexElemet = 0) => {
+    
     tabContentBlocks[indexElemet].style.display = 'block'
     tabItems[indexElemet].classList.add('tab_content_item_active')
+    
 }
 
 
 
-showTabContent()
+showTabContent()    
 showTabContent()
 
 parentTabs.onclick = (event) => {
     if (event.target.classList.contains('tab_content_item')) {
         tabItems.forEach((tabItem, tabIndex) => {
             if (event.target === tabItem){
-                hideTadContent()
+                hideTabContent()
                 showTabContent(tabIndex)
+                
             }
         }) 
+        
     }
 }
+
+
+
+// 1)Avto Slider
+let activeTab = 0
+
+
+const showNext = () => {
+    hideTabContent();
+    activeTab = activeTab === tabItems.length - 1 ? 0 : activeTab + 1;
+    showTabContent(activeTab);
+}
+
+
+const startSlider = () => setInterval(showNext, 3000);
+
+startSlider();
+
+
+
+
+parentTabs.addEventListener('click', event => {
+    if (event.target.classList.contains('tab_content_item')) {
+        hideTabContent();
+
+        tabItems.forEach((item, index) => {
+            if (item === event.target) {
+                activeTab = index;
+            }
+        });
+
+        showTabContent(activeTab);
+    }
+    
+});

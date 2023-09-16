@@ -1,14 +1,24 @@
 /* HEADER */
-
 .header {
     height: 80px;
-    background: #2c2d2f;
+    background: linear-gradient(135deg, #ff0000, #eeff00, #ff5900);
+    background-size: 200% 200%;
+    animation: gradientShift 10s linear infinite;
     display: flex;
     align-items: center;
     width: 100%;
     position: fixed;
     top: 0;
     z-index: 2;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
 }
 
 .inner_header {
@@ -19,7 +29,6 @@
 }
 
 /* LOGOTYPE */
-
 .logotype {
     display: flex;
     align-items: center;
@@ -27,13 +36,15 @@
     font-size: 22px;
     height: 60px;
     width: fit-content;
-    background: var(--orange);
+    background: linear-gradient(90deg, #ea00ff, #028876);
+    /* #00ffff */
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
     padding: 8px;
-    color: white;
     border-radius: 5px;
     cursor: pointer;
 }
-
 /* HEADER MENU */
 
 .menu {
@@ -43,7 +54,8 @@
 }
 
 .menu_link a {
-    color: var(--orange);
+    /* color: var(--orange); */
+    color: #000;
     text-transform: uppercase;
 }
 
