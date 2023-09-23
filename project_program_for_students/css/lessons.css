@@ -136,7 +136,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 30px;
     margin-top: 50px;
 }
@@ -144,6 +145,17 @@
 .inner_converter > div {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.inner_converter > .flag_text {
+    display: flex;
+    flex-direction: row;
+}
+
+.flag-us {
+    width: 20px;
 }
 
 /*------WEATHER------*/

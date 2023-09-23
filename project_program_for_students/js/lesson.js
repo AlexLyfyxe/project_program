@@ -94,3 +94,137 @@ parentTabs.addEventListener('click', event => {
     }
     
 });
+
+
+//////// CONVENTER
+
+const som = document.querySelector('#som');
+const usd = document.querySelector('#usd');
+const jpy = document.querySelector('#jpy');
+const byn = document.querySelector('#byn');
+const kzt = document.querySelector('#kzt');
+const aed = document.querySelector('#aed');
+const gbp = document.querySelector('#gbp');
+
+// som.addEventListener('input', () => {
+//     const request = new XMLHttpRequest()
+//     request.open("GET", "../data/converter.json")
+//     request.setRequestHeader("Content-type", "application/json")
+//     request.send()
+
+//     request.addEventListener('load', () => {
+//         const response = JSON.parse(request.response)
+//         usd.value = (som.value / response.usd).toFixed(2)
+
+//     })
+
+// })
+
+
+// usd.addEventListener('input', () => {
+//     const request = new XMLHttpRequest()
+//     request.open("GET", "../data/converter.json")
+//     request.setRequestHeader("Content-type", "application/json")
+//     request.send()
+
+//     request.addEventListener('load', () => {
+//         const response = JSON.parse(request.response)
+//         som.value = (usd.value * response.usd).toFixed(2)
+
+//     })
+
+// })
+
+
+
+///DRY - don't repeate yourself
+// KISS - Keep it semple, stupid
+
+
+
+const converter = (element, target1, target2, target3, target4, target5, target6, Currency) => {
+    element.oninput = () => {
+        const request = new XMLHttpRequest()
+        request.open("GET", "../data/converter.json")
+        request.setRequestHeader("Content-type", "application/json")
+        request.send()
+
+
+        request.onload = () => {
+            const response = JSON.parse(request.response)
+            if (Currency === 'som') {
+                target1.value = (element.value / response.usd).toFixed(2);
+                target2.value = (element.value / response.jpy).toFixed(2);
+                target3.value = (element.value / response.byn).toFixed(2);
+                target4.value = (element.value / response.kzt).toFixed(2);
+                target5.value = (element.value / response.aed).toFixed(2);
+                target6.value = (element.value / response.gbp).toFixed(2);
+            
+            } else if (Currency === 'usd') {
+                target1.value = (element.value * response.usd).toFixed(2);       
+                target2.value = (element.value * (response.usd / response.jpy)).toFixed(2);
+                target3.value = (element.value * (response.usd / response.byn)).toFixed(2);
+                target4.value = (element.value * (response.usd / response.kzt)).toFixed(2);
+                target5.value = (element.value * (response.usd / response.aed)).toFixed(2);
+                target6.value = (element.value * (response.usd / response.gbp)).toFixed(2);
+
+            } else if (Currency === 'jpy') {
+                target1.value = (element.value * response.jpy).toFixed(2);
+                target2.value = (element.value * (response.jpy / response.usd)).toFixed(2);
+                target3.value = (element.value * (response.jpy / response.byn)).toFixed(2);
+                target4.value = (element.value * (response.jpy / response.kzt)).toFixed(2);
+                target5.value = (element.value * (response.jpy / response.aed)).toFixed(2);
+                target6.value = (element.value * (response.jpy / response.gbp)).toFixed(2);
+
+            } else if (Currency === 'byn') {
+                target1.value = (element.value * response.byn).toFixed(2);
+                target2.value = (element.value * (response.byn / response.usd)).toFixed(2);
+                target3.value = (element.value * (response.byn / response.jpy)).toFixed(2);
+                target4.value = (element.value * (response.byn / response.kzt)).toFixed(2);
+                target5.value = (element.value * (response.byn / response.aed)).toFixed(2);
+                target6.value = (element.value * (response.byn / response.gbp)).toFixed(2);
+
+            } else if (Currency === 'kzt') {
+                target1.value = (element.value * response.kzt).toFixed(2);
+                target2.value = (element.value * (response.kzt / response.usd)).toFixed(2);
+                target3.value = (element.value * (response.kzt / response.jpy)).toFixed(2);
+                target4.value = (element.value * (response.kzt / response.byn)).toFixed(2);
+                target5.value = (element.value * (response.kzt / response.aed)).toFixed(2);
+                target6.value = (element.value * (response.kzt / response.gbp)).toFixed(2);
+
+            } else if (Currency === 'aed') {
+                target1.value = (element.value * response.aed).toFixed(2);
+                target2.value = (element.value * (response.aed / response.usd)).toFixed(2);
+                target3.value = (element.value * (response.aed / response.jpy)).toFixed(2);
+                target4.value = (element.value * (response.aed / response.byn)).toFixed(2);
+                target5.value = (element.value * (response.aed / response.kzt)).toFixed(2);
+                target6.value = (element.value * (response.aed / response.gbp)).toFixed(2);
+
+            } else if (Currency === 'gbp') {
+                target1.value = (element.value * response.gbp).toFixed(2);
+                target2.value = (element.value * (response.gbp/ response.usd)).toFixed(2);
+                target3.value = (element.value * (response.gbp / response.jpy)).toFixed(2);
+                target4.value = (element.value * (response.gbp / response.byn)).toFixed(2);
+                target5.value = (element.value * (response.gbp / response.kzt)).toFixed(2);
+                target6.value = (element.value * (response.gbp / response.aed)).toFixed(2);
+            }
+            // element.value === ''? target.value = '': false
+            
+            element.value === '' && (target1.value = '');
+            element.value === '' && (target2.value = '');
+            element.value === '' && (target3.value = '');
+            element.value === '' && (target4.value = '');
+            element.value === '' && (target5.value = '');
+            element.value === '' && (target6.value = '');
+
+        }
+    }
+}
+
+converter(som, usd, jpy, byn, kzt, aed, gbp, 'som');
+converter(usd, som, jpy, byn, kzt, aed, gbp, 'usd');
+converter(jpy, som, usd, byn, kzt, aed, gbp, 'jpy');
+converter(byn, som, usd, jpy, kzt, aed, gbp, 'byn');
+converter(kzt, som, usd, jpy, byn, aed, gbp, 'kzt');
+converter(aed, som, usd, jpy, byn, kzt, gbp, 'aed');
+converter(gbp, som, usd, jpy, byn, kzt, aed, 'gbp');

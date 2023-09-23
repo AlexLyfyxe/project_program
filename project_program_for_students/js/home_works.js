@@ -93,3 +93,7 @@ buttonReset.addEventListener('click', () => {
         interval = null;
     }
 });
+
+
+
+
