@@ -228,3 +228,54 @@ converter(byn, som, usd, jpy, kzt, aed, gbp, 'byn');
 converter(kzt, som, usd, jpy, byn, aed, gbp, 'kzt');
 converter(aed, som, usd, jpy, byn, kzt, gbp, 'aed');
 converter(gbp, som, usd, jpy, byn, kzt, aed, 'gbp');
+
+
+
+
+// Card swither
+const card = document.querySelector('.card');
+const btnNext = document.querySelector('#btn-next');
+const btnPrev = document.querySelector('#btn-prev');
+
+let count = 1;
+
+const fetchCard = (count) => {
+  fetch(`https://jsonplaceholder.typicode.com/todos/${count}`)
+    .then(response => response.json())
+    .then(data => {
+      card.innerHTML = `
+        <p>${data.title}</p>
+        <p style="color: ${data.completed ? 'green' : 'red'}">${data.completed}</p>
+        <span>${data.id}</span>
+      `;
+    });
+}
+
+fetchCard(count);
+
+
+
+btnNext.onclick = () => {
+  count++;
+  if (count > 200) {
+    count = 1;
+  }
+  fetchCard(count);
+};
+
+btnPrev.onclick = () => {
+  count--;
+  if (count < 1) {
+    count = 200;
+  }
+  fetchCard(count);
+};
+
+
+/// parth -- 2 fetch
+fetch('https://jsonplaceholder.typicode.com/posts')
+    .then((response) => response.json())
+    .then((json) => {
+        console.log(json);
+    })
+    
