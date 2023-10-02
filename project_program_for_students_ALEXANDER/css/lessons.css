@@ -1,0 +1,445 @@
+
+/* PHONE CHECKER */
+
+.phone_block {
+    background: black;
+    padding: 100px 0;
+}
+
+.inner_phone_block {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid var(--orange);
+    height: 300px;
+    border-radius: 20px;
+    align-items: center;
+}
+
+.form_phone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form_phone button {
+    width: 100%;
+    margin: 20px 0;
+}
+
+/* TAB SLIDER */
+
+.tab_slider {
+    background: black;
+    padding: 100px 0;
+}
+
+.tab_content_block {
+    width: 700px;
+    border: 1px solid var(--orange);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 170px;
+    display: none;
+}
+
+.tab_content_block p {
+    color: white;
+    margin-top: 10px;
+    text-align: justify;
+}
+
+.tab_content_items {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+.tab_content_item {
+    padding: 10px;
+    height: 30px;
+    color: white;
+    border: 1px solid var(--orange);
+    text-align: center;
+    font-size: 20px;
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+}
+
+.tab_content_item_active {
+    background: var(--orange);
+    color: black;
+    font-weight: 600;
+    border: 1px solid white;
+}
+
+.tab_contents_block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+}
+
+/*------CARD SWITCHER------*/
+
+.card_switcher {
+    background-color: black;
+    padding: 100px 0;
+}
+
+.card {
+    width: 500px;
+    height: 150px;
+    border: 1px solid var(--orange);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+
+.card p {
+    color: var(--orange);
+    font-size: 20px;
+}
+
+.card span {
+    color: white;
+    font-size: 30px;
+}
+
+.inner_card_switcher {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/*-------CONVERTER--------*/
+
+
+.converter {
+    padding: 100px 0;
+    background-color: black;
+}
+
+.inner_converter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.inner_converter > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.inner_converter > .flag_text {
+    display: flex;
+    flex-direction: row;
+}
+
+.flag-us {
+    width: 20px;
+}
+
+/*------WEATHER------*/
+
+.weather {
+    padding: 100px 0;
+    background-color: black;
+}
+
+.inner_weather > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-size: 25px;
+}
+
+.inner_weather {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+hr {
+    width: 100%;
+}
+
+
+
+
+/* PEOPLE BUTTON*/
+.people_cotalog {
+    padding: 0px 0;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.btn_people{
+    background-color: blueviolet;
+    text-align: center;
+    padding: 10px 25px;
+    border-radius: 50px;
+}
+
+.people img {
+    border-radius: 100px;
+    height: 150px;
+    width: 150px;
+}
+.people_title {
+    font-size: 18px;
+    color: #fff;
+}
+.people {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 35px;
+    font-weight: 800;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.person-card {
+    width: 250px;
+    padding: 10px;
+    border: 2px solid #D22730;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+}
+.people_age {
+    font-size: 14px;
+    color: #fff;
+    font-weight: 400;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+
+:root {
+  --glow-color: #D22730;
+}
+
+
+.glowing-btn {
+  position: relative;
+  color: var(--glow-color);
+  cursor: pointer;
+  padding: 0.35em 1em;
+  border: 0.15em solid var(--glow-color);
+  border-radius: 0.45em;
+  background: none;
+  perspective: 2em;
+  font-family: "Raleway", sans-serif;
+  font-size: 2em;
+  font-weight: 900;
+  letter-spacing: 1em;
+
+  -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+  -moz-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+  box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+  animation: border-flicker 2s linear infinite;
+}
+
+.glowing-txt {
+  float: left;
+  margin-right: -0.8em;
+  -webkit-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+    0 0 0.45em var(--glow-color);
+  -moz-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+    0 0 0.45em var(--glow-color);
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--glow-color);
+  animation: text-flicker 3s linear infinite;
+}
+
+.faulty-letter {
+  opacity: 0.5;
+  animation: faulty-flicker 2s linear infinite;
+}
+
+.glowing-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.7;
+  filter: blur(1em);
+  transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
+  background: var(--glow-color);
+  pointer-events: none;
+}
+
+.glowing-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: -1;
+  background-color: var(--glow-color);
+  box-shadow: 0 0 2em 0.2em var(--glow-color);
+  transition: opacity 100ms linear;
+}
+
+.glowing-btn:hover {
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: none;
+  animation: none;
+}
+
+.glowing-btn:hover .glowing-txt {
+  animation: none;
+}
+
+.glowing-btn:hover .faulty-letter {
+  animation: none;
+  text-shadow: none;
+  opacity: 1;
+}
+
+.glowing-btn:hover:before {
+  filter: blur(1.5em);
+  opacity: 1;
+}
+
+.glowing-btn:hover:after {
+  opacity: 1;
+}
+
+@keyframes faulty-flicker {
+  0% {
+    opacity: 0.1;
+  }
+  2% {
+    opacity: 0.1;
+  }
+  4% {
+    opacity: 0.5;
+  }
+  19% {
+    opacity: 0.5;
+  }
+  21% {
+    opacity: 0.1;
+  }
+  23% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  83% {
+    opacity: 0.4;
+  }
+
+  87% {
+    opacity: 1;
+  }
+}
+
+@keyframes text-flicker {
+  0% {
+    opacity: 0.1;
+  }
+
+  2% {
+    opacity: 1;
+  }
+
+  8% {
+    opacity: 0.1;
+  }
+
+  9% {
+    opacity: 1;
+  }
+
+  12% {
+    opacity: 0.1;
+  }
+  20% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.3;
+  }
+  30% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0.7;
+  }
+  72% {
+    opacity: 0.2;
+  }
+
+  77% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes border-flicker {
+  0% {
+    opacity: 0.1;
+  }
+  2% {
+    opacity: 1;
+  }
+  4% {
+    opacity: 0.1;
+  }
+
+  8% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .glowing-btn{
+    font-size: 1em;
+  }
+}
